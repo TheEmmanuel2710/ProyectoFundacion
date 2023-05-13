@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+
+#footer {
+    background-color: rgb(146, 25, 25);
+    color: #fff;
+    padding: 30px 0;
+  }
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-section {
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  
+  .footer-heading {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .social-links li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .social-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+  
+#nav{
+    background-color:  rgb(146, 25, 25);
+  }
+
