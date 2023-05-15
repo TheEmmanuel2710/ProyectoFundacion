@@ -6,7 +6,25 @@
 {% include "menu.html" %}
 {%endblock %}
 {% block contenido %}
-<h1>HOLAAAA</h1>
+<h1 class="text-center" style="font-family: 'Alkatra', cursive; color:rgb(146, 25, 25);">PRECIADOS RECUERDOS </h1>
+<div class="container my-3 mt-5" id="featureContainer">
+  <div class="row mx-auto my-auto justify-content-center">
+      <div id="featureCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="d-flex justify-content-between position-relative top-50 px-3"
+              style="z-index: 10000;">
+              <a class="indicator" href="#featureCarousel" role="button" data-bs-slide="prev">
+                  <span class="fas fa-chevron-left" aria-hidden="true"></span>
+              </a> &nbsp;&nbsp;
+              <a class="w-aut indicator" href="#featureCarousel" role="button" data-bs-slide="next">
+                  <span class="fas fa-chevron-right" aria-hidden="true"></span>
+              </a>
+          </div>
+          <div class="carousel-inner" role="listbox">
+          </div>
+      </div>
+  </div>
+</div>
+  
 {%endblock %}
 {% block piePagina %}
 {% include "piePagina.html" %}

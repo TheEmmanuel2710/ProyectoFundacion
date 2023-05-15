@@ -1,56 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
 
 #footer {
-    background-color: rgb(146, 25, 25);
-    color: #fff;
-    padding: 30px 0;
-  }
-  .footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .footer-section {
-    flex: 1;
-    margin-bottom: 20px;
-  }
-  
-  .footer-heading {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .footer-links li {
-    margin-bottom: 10px;
-  }
-  
-  .footer-links a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .social-links li {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  
-  .social-links a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .footer-bottom {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 14px;
-  }
-  
-  .footer-bottom p {
-    margin: 0;
-  }
-  
-#nav{
-    background-color:  rgb(146, 25, 25);
-  }
+  background-color: rgb(146, 25, 25);
+  color: #fff;
+  padding: 0px 0;
+  margin-block-end: 0%;
+  margin-top: 30px;
+  position: relative;
+}
 
+.footer-content {
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex-basis: 30%;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer-heading {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.footer-links li {
+  margin-bottom: 5px;
+}
+
+.social-links {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.social-links li {
+  margin-right: 5px;
+}
+.footer-links a, .footer-section p,.footer-bottom {
+  font-size: 14px; 
+  line-height: 1.4; 
+  margin-bottom: 5px; 
+}
+#nav {
+  background-color: rgb(146, 25, 25);
+}
+
+.carousel-item img {
+  width: 200px;
+  height: 200px;
+  margin: 0% auto;
+}
+
+#featureContainer a {
+  text-decoration: none;
+}
+
+#featureContainer .indicator {
+  border: 1px solid rgb(202, 202, 202);
+  padding: 3px 6px 3px 6px;
+}
+
+#featureContainer .indicator:hover {
+  background-color: blue;
+  border: 1px solid blue;
+  transition: 200ms;
+}
+
+#featureContainer .indicator:hover {
+  color: white;
+  transition: 200ms;
+}
+
+#featureContainer .indicator {
+  color: lightgray;
+}
+
+#featureContainer .float-end {
+  padding-top: 10px;
+}
