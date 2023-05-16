@@ -46,6 +46,7 @@
   font-size: 14px; 
   line-height: 1.4; 
   margin-bottom: 5px; 
+  color: white;
 }
 #nav {
   background-color: rgb(146, 25, 25);
@@ -84,3 +85,65 @@
 #featureContainer .float-end {
   padding-top: 10px;
 }
+.social-links a i.bi-facebook {
+  color: white;
+}
+
+.social-links a i.bi-twitter {
+  color: white;
+}
+
+.social-links a i.bi-instagram {
+  color: white;
+}
+/* Estilos para pantallas de hasta 600px de ancho */
+@media (max-width: 600px) {
+  /* Estilos para el footer */
+  #footer {
+    padding: 10px 0;
+  }
+
+  .footer-content {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .footer-section {
+    flex-basis: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Estilos para el footer */
+  #footer {
+    padding: 10px 0;
+  }
+
+  .footer-content {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .footer-section {
+    flex-basis: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+  .footer-links a,
+  .footer-section p,
+  .footer-bottom {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .footer-links a,
+  .footer-section p,
+  .footer-bottom {
+    font-size: 16px;
+  }
+}
+
