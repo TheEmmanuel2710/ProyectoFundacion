@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   let datos = "";
-  for (let index = 1; index < 139; index++) {
+  for (let index = 1; index < 140; index++) {
     datos += "<div class='carousel-item'>";
-    datos += "<img src='../media/fotos/" + index +".JPG' class='d-block'></img>";
+    datos += "<img src='media/fotos/" + index +".JPG' class='d-block'></img>";
     datos += "</div>";
   }
   document.querySelector('.carousel-inner').innerHTML = datos;
