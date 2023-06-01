@@ -21,6 +21,11 @@
 
 <body>
     <div class="container-fluid">
+        <header class="row">
+            <div class="logoEncabezado responsive" style="text-align: center;">
+                <img src="media/Logo.png" style="height:150px ; width: 100%;" alt="logoEncabezado" class="img-fluid">
+            </div>
+        </header>
         <nav class="navbar navbar-expand-lg" id="nav">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -29,32 +34,27 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <a class="navbar-brand fw-bold" href="index.html"><img src="media/Logo.png"
-                                alt="logoEncabezado" style="height:50px ; width: 100%;"></a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <li class="nav-item dropdown" d>
-                            <a class="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown"
-                                style="color: white;">Ver</a>
-                            <ul class="dropdown-menu bg-danger">
-                                <li><a class="dropdown-item fw-bold" href="vistaFotos.html"
-                                        style="color: white;">Fotos</a>
-                                </li>
-                                <li><a class="dropdown-item fw-bold" href="vistaVideos.html"
-                                        style="color: white;">Videos</a>
-                                </li>
-                            </ul>
+                        <li class="nav-item">
+                        <li><a class="nav-link fw-bold" href="index.html" style="color: white;">Inicio</a>
+                        </li>
+                        <li><a class="nav-link fw-bold" href="vistaFotos.html" style="color: white;">Fotos</a>
+                        </li>
+                        <li><a class="nav-link fw-bold" href="vistaVideos.html" style="color: white;">Videos</a>
+                        </li>
+                        <li><a class="nav-link fw-bold" href="vistaCorreo.html" style="color: white;">Enviar Correo</a>
+                        </li>
+                        </li>
+                    </ul>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item" style="margin-right: -1000%;">
+                          <a class="nav-link fw-bold" aria-current="page" href="login.html" style="color: white;">Ingresar</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <section class="container" style="margin-bottom: 100px;">
-            <h1 class="text-center" style="font-family: 'Alkatra', cursive; color:rgb(146, 25, 25);">PRECIADOS RECUERDOS
-            </h1>
+        <section class="container" style="margin-bottom: 8px;">
+            <h1 class="text-center" style="font-family: 'Alkatra', cursive; color:rgb(146, 25, 25);">RECUERDOS</h1>
             <div class="container my-3 mt-5" id="featureContainer">
                 <div class="row mx-auto my-auto justify-content-center">
                     <div id="featureCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -114,6 +114,8 @@
                                             class="bi bi-facebook" style="font-size: 50px;"></i></a></li>
                                 <li><a href="#"><i class="bi bi-twitter" style="font-size: 50px;"></i></a></li>
                                 <li><a href="#"><i class="bi bi-instagram" style="font-size: 50px;"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCtoWaW1WRlSdbfca0QgG7xA"><i
+                                    class="bi bi-youtube" style="font-size: 55px; color: white;"></i></a></li>
                             </ul>
                         </div>
                     </div>

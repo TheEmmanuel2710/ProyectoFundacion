@@ -53,24 +53,45 @@
                 </div>
             </div>
         </nav>
-        <section class="container" style="margin-bottom: 8px;">
-            <h1 class="text-center" style="font-family: 'Alkatra', cursive; color:rgb(146, 25, 25);">RECUERDOS</h1>
-            <div class="row" style="margin-top: 5Opx; margin-left: 20%;">
-                <div class="col-sm-4">
-                    <div class="card w-70 text-center">
-                        <div class="card-header text-center fw-bold">Video #01</div>
-                        <div class="card-body"><video src="media/videos/1.MP4"
-                                style="width: 100%;height: 400px;" controls></video>
-                        </div>
-                    </div>
+        <section class="container" style="margin-bottom: 10px;">
+            <div style="margin: 0% auto; margin-top: 20px;" class="w-50">
+                <div class="text-center">
+                    <h3>FORMULARIO CORREO</h3>
                 </div>
-                <div class="col-sm-4">
-                    <div class="card w-100 text-center">
-                        <div class="card-header text-center fw-bold">Video #02</div>
-                        <div class="card-body"><video src="media/videos/2.MP4" style="width: 100%;height: 400px;"
-                                controls></video></div>
+                <form action="/enviarGmail" method="post" enctype="multipart/form-data">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" placeholder="Leave a comment here" name="txtPara"
+                            id="txtPara" required>
+                        <label for="txtPara" class="fw-bold">Para:</label>
+
                     </div>
-                </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" placeholder="Leave a comment here"
+                            name="txtDestinatario" id="txtDestinatario" required>
+                        <label for="txtDestinatario" class="fw-bold">De:</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" placeholder="Leave a comment here" name="txtAsunto"
+                            id="txtAsunto" required>
+                        <label for="txtAsunto" class="fw-bold">Asunto:</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control " placeholder="Leave a comment here" name="txtMensaje"
+                            id="txtMensaje" style="height: 100px"></textarea>
+                        <label for="txtMensaje" class="fw-bold">Mensaje:</label>
+                    </div>
+                    <div>
+                        <label for="fileAnexo" class="fw-bold mb-3">Anexo:</label>
+                        <input type="file" class="form-control" name="fileAnexo" id="fileAnexo" required>
+                    </div>
+                    <br>
+                    <div style="text-align: center;">
+                        <button class="btn btn-outline-success">Enviar</button>
+                        <a href="index.html">
+                            <button type="button" class="btn btn-outline-danger">Cancelar</button>
+                        </a>
+                    </div>
+                </form>
             </div>
         </section>
         <footer class="row fixed-bottom" id="footer">
@@ -109,13 +130,11 @@
                         <div class="footer-section">
                             <h3 class="footer-heading">Síguenos en:</h3>
                             <ul class="social-links">
-                                <li><a
-                                        href="https://m.facebook.com/pages/category/non-profit/Fundaci%C3%B3n-Casa-Hogar-Divino-Ni%C3%B1o-140073403394660/"><i
-                                            class="bi bi-facebook" style="font-size: 50px;"></i></a></li>
-                                <li><a href="#"><i class="bi bi-twitter" style="font-size: 50px;"></i></a></li>
-                                <li><a href="#"><i class="bi bi-instagram" style="font-size: 50px;"></i></a></li>
+                                <li><a href=""><i class="bi bi-facebook" style="font-size: 50px;"></i></a></li>
+                                <li><a href=""><i class="bi bi-twitter" style="font-size: 50px;"></i></a></li>
+                                <li><a href=""><i class="bi bi-instagram" style="font-size: 50px;"></i></a></li>
                                 <li><a href="https://www.youtube.com/channel/UCtoWaW1WRlSdbfca0QgG7xA"><i
-                                    class="bi bi-youtube" style="font-size: 55px; color: white;"></i></a></li>
+                                            class="bi bi-youtube" style="font-size: 55px; color: white;"></i></a></li>
                             </ul>
                         </div>
                     </div>
