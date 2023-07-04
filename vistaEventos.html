@@ -54,6 +54,7 @@
                             </li>
                             </li>
                         </ul>
+
                     </div>
                     <ul class="nav justify-content-end">
                         <li class="nav-item">
@@ -62,25 +63,16 @@
                         </li>
                     </ul>
                 </div>
-
             </nav>
         </div>
         <section class="container" style="margin-bottom: 8px;">
-            <h1 class="text-center" style="font-family: 'Alkatra', cursive; color:blue;">RECUERDOS</h1>
-            <div class="container my-3 mt-5" id="featureContainer">
-                <div class="row mx-auto my-auto justify-content-center">
-                    <div id="featureCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="d-flex justify-content-between position-relative top-50 px-3"
-                            style="z-index: 10000;">
-                            <a class="indicator" href="#featureCarousel" role="button" data-bs-slide="prev">
-                                <span class="fas fa-chevron-left" aria-hidden="true"></span>
-                            </a> &nbsp;&nbsp;
-                            <a class="w-aut indicator" href="#featureCarousel" role="button" data-bs-slide="next">
-                                <span class="fas fa-chevron-right" aria-hidden="true"></span>
-                            </a>
-                        </div>
-                        <div class="carousel-inner" role="listbox">
-                        </div>
+            <h1 class="text-center mt-3" style="font-family: 'Alkatra', cursive; color:blue;">EVENTOS
+                REALIZADOS</h1>
+            <br>
+            <div class="row" style="justify-content: center;">
+                <div class="col-sm-4">
+                    <div class="card w-70 text-center" id="card-evento">
+
                     </div>
                 </div>
             </div>
@@ -105,17 +97,14 @@
                                 <a href="https://wa.me/3108184295">3108184295</a>
                                 <br>
                                 <a href="https://wa.me/3188753350">3188753350</a>
-
                             </ul>
                         </div>
                         <div class="footer-section">
                             <h3 class="footer-heading">Visítanos en:</h3>
                             <ul class="social-links">
-                                <li><a
-                                        href="https://m.facebook.com/pages/category/non-profit/Fundaci%C3%B3n-Casa-Hogar-Divino-Ni%C3%B1o-140073403394660/"><i
-                                            class="bi bi-facebook" style="font-size: 50px;"></i></a></li>
-                                <li><a href="#"><i class="bi bi-twitter" style="font-size: 50px;"></i></a></li>
-                                <li><a href="#"><i class="bi bi-instagram" style="font-size: 50px;"></i></a></li>
+                                <li><a href=""><i class="bi bi-facebook" style="font-size: 50px;"></i></a></li>
+                                <li><a href=""><i class="bi bi-twitter" style="font-size: 50px;"></i></a></li>
+                                <li><a href=""><i class="bi bi-instagram" style="font-size: 50px;"></i></a></li>
                                 <li><a href="https://www.youtube.com/channel/UCtoWaW1WRlSdbfca0QgG7xA"><i
                                             class="bi bi-youtube" style="font-size: 55px; color: white;"></i></a></li>
                             </ul>
@@ -134,3 +123,52 @@
 </body>
 
 </html>
+<script>
+    function Read() {
+        fetch("./controller/eventos.read.php")
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                let datos = "";
+                data.forEach((element, index) => {
+                    datos += `<div class="card">
+                        <div class="card-header text-center fw-bold" style="font-family: 'Alkatra', cursive; color: blue;">${element.notiTitulo}</div>
+                        <div class="card-body" style="font-family: 'Alkatra', cursive; color: blue;">${element.notiDescripcion}</div>
+                        <div class="card-body">
+                            <div class="container my-3 mt-5" id="featureContainer">
+                                <div class="row mx-auto my-auto justify-content-center">
+                                    <div id="featureCarousel" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="d-flex justify-content-between position-relative top-50 px-3"
+                                            style="z-index: 10000;">
+                                            <a class="indicator" href="#featureCarousel" role="button" data-bs-slide="prev">
+                                                <span class="fas fa-chevron-left" aria-hidden="true"></span>
+                                            </a> &nbsp;&nbsp;
+                                            <a class="w-aut indicator" href="#featureCarousel" role="button" data-bs-slide="next">
+                                                <span class="fas fa-chevron-right" aria-hidden="true"></span>
+                                            </a>
+                                        </div>
+                                        <div class="carousel-inner" role="listbox">
+                                            <img src="media/${element.notiAnexo}" alt="Imagen del evento" style="max-width: 100%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer fw-bold" style="font-family: 'Alkatra', cursive; color: blue;">Fundacion Casa Hogar Divino Niño</div>
+                    </div>
+                    `;
+                    if (index !== data.length - 1) {
+                        datos += `<hr />`; // Agrega una línea horizontal para separar las tarjetas
+                    }
+                });
+                document.getElementById("card-evento").innerHTML = datos;
+            })
+            .catch((error) => {
+                console.log("-----Error al consultar evento-----");
+            });
+    }
+    Read();
+
+
+
+</script>

@@ -14,6 +14,7 @@
     <!--font awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Funciones Propias-->
     <link rel="stylesheet" href="static/css/app.css">
     <script src="static/js/app.js"></script>
     <title>Fundación Divino Niño</title>
@@ -23,76 +24,91 @@
     <div class="container-fluid">
         <header class="row">
             <div class="logoEncabezado responsive" style="text-align: center;">
-                <img src="media/Logo.png" style="height:150px ; width: 100%;" alt="logoEncabezado" class="img-fluid">
+                <img src="media/Logo.jpg" alt="logoEncabezado" class="img-fluid">
             </div>
         </header>
-        <nav class="navbar navbar-expand-lg" id="nav">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                        <li><a class="nav-link fw-bold" href="index.html" style="color: white;">Inicio</a>
-                        </li>
-                        <li><a class="nav-link fw-bold" href="vistaFotos.html" style="color: white;">Fotos</a>
-                        </li>
-                        <li><a class="nav-link fw-bold" href="vistaVideos.html" style="color: white;">Videos</a>
-                        </li>
-                        <li><a class="nav-link fw-bold" href="vistaCorreo.html" style="color: white;">Enviar Correo</a>
-                        </li>
-                        </li>
-                    </ul>
+        <div class="row sticky-top">
+            <nav class="navbar navbar-expand-lg" id="nav">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="index.html" style="color: white;">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="vistaFotos.html" style="color: white;">Fotos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="vistaVideos.html" style="color: white;">Videos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="vistaCorreo.html" style="color: white;">Enviar
+                                    Correo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="vistaEventos.html" style="color: white;">Eventos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="vistaQr.html" style="color: white;">Codigo Qr</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="vistaHistoria.html" style="color: white;">Historia</a>
+                            </li>
+                        </ul>
+
+                    </div>
                     <ul class="nav justify-content-end">
-                        <li class="nav-item" style="margin-right: -1000%;">
-                          <a class="nav-link fw-bold" aria-current="page" href="login.html" style="color: white;">Ingresar</a>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" aria-current="page" href="login.html"
+                                style="color: white;">Ingresar</a>
                         </li>
                     </ul>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
         <section class="container" style="margin-bottom: 10px;">
-            <div style="margin: 0% auto; margin-top: 20px;" class="w-50">
+            <div style="margin: 0% auto; padding: 2%;" class="w-50">
                 <div class="text-center">
-                    <h3>FORMULARIO CORREO</h3>
+                    <h3 style="color: blue;">ENVIAR CORREO</h3>
                 </div>
-                <form action="/enviarGmail" method="post" enctype="multipart/form-data">
+                <form action="enviar.php" method="POST" enctype="multipart/form-data">
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" placeholder="Leave a comment here" name="txtPara"
-                            id="txtPara" required>
-                        <label for="txtPara" class="fw-bold">Para:</label>
+                        <input type="email" class="form-control" placeholder="Leave a comment here"
+                            name="txtDestinatario" id="txtDestinatario" value="Fundacioncasahogardivinonino@gmail.com" readonly>
+                        <label for="txtDestinatario" class="fw-bold" style="color: blue;">Para:</label>
 
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" placeholder="Leave a comment here"
-                            name="txtDestinatario" id="txtDestinatario" required>
-                        <label for="txtDestinatario" class="fw-bold">De:</label>
+                        <input type="email" class="form-control" placeholder="Leave a comment here" name="txtRemitente"
+                            id="txtRemitente" required>
+                        <label for="txtRemitente" class="fw-bold" style="color: blue;">De:</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" placeholder="Leave a comment here" name="txtAsunto"
                             id="txtAsunto" required>
-                        <label for="txtAsunto" class="fw-bold">Asunto:</label>
+                        <label for="txtAsunto" class="fw-bold" style="color: blue;">Asunto:</label>
                     </div>
                     <div class="form-floating mb-3">
                         <textarea class="form-control " placeholder="Leave a comment here" name="txtMensaje"
                             id="txtMensaje" style="height: 100px"></textarea>
-                        <label for="txtMensaje" class="fw-bold">Mensaje:</label>
+                        <label for="txtMensaje" class="fw-bold" style="color: blue;">Mensaje:</label>
                     </div>
-                    <div>
-                        <label for="fileAnexo" class="fw-bold mb-3">Anexo:</label>
+                    <div class="form-floating mb-3">
                         <input type="file" class="form-control" name="fileAnexo" id="fileAnexo" required>
+                        <label for="fileAnexo" class="fw-bold mb-3" style="color: blue;">Anexo:</label>
                     </div>
                     <br>
                     <div style="text-align: center;">
-                        <button class="btn btn-outline-success">Enviar</button>
-                        <a href="index.html">
-                            <button type="button" class="btn btn-outline-danger">Cancelar</button>
-                        </a>
+                        <button class="btn btn-outline-info">Enviar</button>
+                        <button type="button" class="btn btn-outline-danger">Cancelar</button>
                     </div>
                 </form>
             </div>
+
         </section>
         <footer class="row fixed-bottom" id="footer">
             <div class="text-center fw-bold text-white">
@@ -104,31 +120,21 @@
                                 favor de la
                                 dignidad de
                                 las personas, especialmente del adulto mayor en condición de vulnerabilidad.</p>
-                            <p>Estamos ubicados: Km 7 vía Aipe</p>
+                            <p>Estamos ubicados: Km 7 vía Neiva-Aipe</p>
                         </div>
                         <div class="footer-section">
                             <h3 class="footer-heading">Contáctenos:</h3>
                             <ul class="footer-links">
-                                <li>
-                                    <a href="https://wa.me/3168411685">Sus aportes a esta cuenta nequi : 316 8411685</a>
-                                </li>
-                                <li>
-                                    <a href="https://wa.me/3108184295">JORGE LORENZO ESCANDÓN OSPINA
-                                        C.C. 12.128.276 de Neiva Dirección: cll 20 a # 44-44 casa 18ª
-                                        Cel:3108184295</a>
-                                </li>
-                                <li>
-                                    <a href="https://wa.me/3188753350">Armando Pineda Quimbaya
-                                        Dirección: Carrera 31 # 51 - 87
-                                        Reserva de caña brava
-                                        Torre 7 apto 101
-                                        Cel:318 875 3350
-                                    </a>
-                                </li>
+                                <a href="https://wa.me/3168411685">3168411685</a>
+                                <br>
+                                <a href="https://wa.me/3108184295">3108184295</a>
+                                <br>
+                                <a href="https://wa.me/3188753350">3188753350</a>
+
                             </ul>
                         </div>
                         <div class="footer-section">
-                            <h3 class="footer-heading">Síguenos en:</h3>
+                            <h3 class="footer-heading">Visítanos en:</h3>
                             <ul class="social-links">
                                 <li><a href=""><i class="bi bi-facebook" style="font-size: 50px;"></i></a></li>
                                 <li><a href=""><i class="bi bi-twitter" style="font-size: 50px;"></i></a></li>
