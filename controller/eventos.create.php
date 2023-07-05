@@ -20,7 +20,4 @@ $result = $eventosM->create();
 echo json_encode($result);
 
 unset($eventosM);
-
-
-
 ?>

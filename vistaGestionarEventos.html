@@ -76,14 +76,14 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="updateModalLabel" style="color: blue;">Editar Evento
+                                <h1 class="modal-title fs-5 fw-bold" id="updateModalLabel" style="color: blue;">Editar Evento
                                 </h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form>
-                                    <label for="" class="" style="color: blue;">Edición Evento:</label><br>
+                                    <label for="" class="fw-bold" style="color: blue;">Edición Evento:</label><br>
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="txtTituloEdit"
                                             placeholder="Digite el producto" required>
@@ -118,7 +118,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="deleteModalLabel">Eliminar Producto</h1>
+                                <h1 class="modal-title fs-5" id="deleteModalLabel">Eliminar Evento</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -180,28 +180,3 @@
 </body>
 
 </html>
-<script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (() => {
-        "use strict";
-
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        const forms = document.querySelectorAll(".needs-validation");
-
-        // Loop over them and prevent submission
-        Array.from(forms).forEach((form) => {
-            form.addEventListener(
-                "submit",
-                (event) => {
-                    if (!form.checkValidity()) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-
-                    form.classList.add("was-validated");
-                },
-                false
-            );
-        });
-    })();
-</script>
