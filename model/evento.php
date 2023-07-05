@@ -70,6 +70,7 @@ class Evento
             return "Error al consultar evento " . $e->getMessage();
         }
     }
+    
     public function update()
     {
         try {

@@ -18,6 +18,7 @@ class Usuario
     {
         $this->con = new \Conexion;
     }
+    
     public function login()
     {
         try {
