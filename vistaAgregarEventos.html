@@ -50,7 +50,7 @@
                 <div class="text-center">
                     <h3 style="color: blue;">FORMULARIO CREACION DE EVENTO</h3>
                 </div>
-                <form id="noticias" enctype="multipart/form-data">
+                <form id="noticias" method="post" action="controller/eventos.create.php" enctype="multipart/form-data">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" placeholder="Leave a comment here" name="txtTitulo"
                             id="txtTitulo" required>
@@ -62,7 +62,7 @@
                         <label for="txtDescripcion" class="fw-bold" style="color: blue;">Descripcion del evento:</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="file" class="form-control" name="fileAnexo" id="fileAnexo" required>
+                        <input type="file" class="form-control" name="fileAnexo[]" id="fileAnexo[]" multiple="" required>
                         <label for="fileAnexo" class="fw-bold mb-3" style="color: blue;">Anexo:</label>
                     </div>
                     <br>

@@ -52,18 +52,31 @@ function Read() {
                 filas += `<tr>`;
                 filas += `<td>${element.notiTitulo}</td>`;
                 filas += `<td>${element.notiDescripcion}</td>`;
-                filas += `<td><img src="media/${element.notiAnexo}" alt="Imagen" style="width: 50%; height:50px;"></td>`;
-                filas += `<td><a onclick=readId(${element.id}) class='btn btn-info' data-bs-toggle='modal' data-bs-target='#updateModal'><i class="fa fa-edit text-white" tile="ver/editar" style="font-size: 1rem;"></i></a> <a  onclick="deleteID(${element.id},'${element.notiTitulo}')" class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class="fa fa-trash" title="Eliminar style="font-size: 1rem;"></i></a></td>`;
+
+                // Verificar si notiAnexo es una cadena con nombres de archivo separados por comas
+                if (typeof element.notiAnexo === 'string' && element.notiAnexo !== '') {
+                    const filenames = element.notiAnexo.split(',');
+                    filas += `<td>`;
+                    filenames.forEach((filename) => {
+                        filas += `<img src="./media/${filename.trim()}" alt="Imagen" style="width: 50%; height:70px;">`;
+                    });
+                    filas += `</td>`;
+                } else {
+                    filas += `<td>${element.notiAnexo}</td>`; // Mostrar el valor de notiAnexo directamente si no es una cadena con nombres de archivo
+                }
+
+                filas += `<td><a onclick="readId(${element.id})" class='btn btn-info' data-bs-toggle='modal' data-bs-target='#updateModal'><i class="fa fa-edit text-white" title="ver/editar" style="font-size: 1rem;"></i></a> <a onclick="deleteID(${element.id},'${element.notiTitulo}')" class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class="fa fa-trash" title="Eliminar" style="font-size: 1rem;"></i></a></td>`;
                 filas += `</tr>`;
             });
-            document.getElementById("tbl-Evento").innerHTML = filas
+            document.getElementById("tbl-Evento").innerHTML = filas;
         })
         .catch((error) => {
             console.log("-----Error al consultar Evento-----");
         });
 }
-Read();
 
+Read();
+    
 function Update() {
     let notiTitulo = document.getElementById("txtTituloEdit").value;
     let notiDescripcion = document.getElementById("txtDescripcionEdit").value;

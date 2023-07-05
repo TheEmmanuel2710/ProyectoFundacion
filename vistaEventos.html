@@ -135,14 +135,48 @@
                         <div class="card-header text-center fw-bold" style="font-family: 'Alkatra', cursive; color: blue;">${element.notiTitulo}</div>
                         <div class="card-body" style="font-family: 'Alkatra', cursive; color: blue;">${element.notiDescripcion}</div>
                         <div class="card-body">
-                            <img src="media/${element.notiAnexo}" alt="Imagen del evento" style="max-width: 100%;">
+                            <div class="container my-3 mt-5" id="featureContainer">
+                                <div class="row mx-auto my-auto justify-content-center">
+                                    <div id="featureCarousel${index}" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="d-flex justify-content-between position-relative top-50 px-3"
+                                            style="z-index: 10000;">
+                                            <a class="indicator" href="#featureCarousel${index}" role="button" data-bs-slide="prev">
+                                                <span class="fas fa-chevron-left" aria-hidden="true"></span>
+                                            </a> &nbsp;&nbsp;
+                                            <a class="w-aut indicator" href="#featureCarousel${index}" role="button" data-bs-slide="next">
+                                                <span class="fas fa-chevron-right" aria-hidden="true"></span>
+                                            </a>
+                                        </div>
+                                        <div class="carousel-inner" role="listbox">`;
+
+                    if (typeof element.notiAnexo === 'string') {
+                        // Si notiAnexo es una cadena, separa los nombres de archivo por comas
+                        const nombresArchivos = element.notiAnexo.split(',');
+
+                        nombresArchivos.forEach((nombreArchivo, i) => {
+                            datos += `<div class="carousel-item ${i === 0 ? 'active' : ''}">
+                                <img src="./media/${nombreArchivo}" alt="Imagen del evento" style="width: 110%;  height:250px;">
+                            </div>`;
+                        });
+                    } else if (Array.isArray(element.notiAnexo)) {
+                        // Si notiAnexo es un array, itera sobre cada nombre de archivo
+                        element.notiAnexo.forEach((nombreArchivo, i) => {
+                            datos += `<div class="carousel-item ${i === 0 ? 'active' : ''}">
+                                <img src="./media/${nombreArchivo}" alt="Imagen del evento" style="width: 110%; height:250px;">
+                            </div>`;
+                        });
+                    }
+
+                    datos += `</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer fw-bold" style="font-family: 'Alkatra', cursive; color: blue;">Fundacion Casa Hogar Divino Niño</div>
                     </div>
-                    `;
-                    if (index !== data.length - 1) {
-                        datos += `<hr />`; // Agrega una línea horizontal para separar las tarjetas
-                    }
+                    </div>
+                    <hr />`; // Agrega una línea horizontal para separar las tarjetas
+
                 });
                 document.getElementById("card-evento").innerHTML = datos;
             })
@@ -151,7 +185,4 @@
             });
     }
     Read();
-
-
-
 </script>

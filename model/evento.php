@@ -26,21 +26,23 @@ class Evento
             $request = $this->con->getCon()->prepare("INSERT INTO eventos(notiTitulo,notiDescripcion,notiAnexo) VALUES(:titulo,:descripcion,:anexo)");
             $request->bindParam(':titulo', $this->titulo);
             $request->bindParam(':descripcion', $this->descripcion);
-            $request->bindParam(':anexo', $this->anexo);
-            // Subir el archivo al servidor
-            $uploadPath = "../media/";
-            $uploadedFile = $_FILES['fileAnexo']['name'];
-            $tempName = $_FILES['fileAnexo']['tmp_name'];
 
-            if (!empty($uploadedFile)) {
-                $anexoPath = $uploadPath . $uploadedFile;
-                move_uploaded_file($tempName, $anexoPath);
-                $this->setAnexo($uploadedFile); // Asignar el nombre del archivo a la propiedad 'anexo'
-            }
+            // Construir la cadena de nombres de archivo separados por comas
+            $filenames = implode(',', $this->anexo);
+            $request->bindParam(':anexo', $filenames);
+
             $request->execute();
-            return "Evento creado de manera exitosa";
+
+            $uploadPath = "../media/";
+            foreach ($this->anexo as $filename) {
+                $sourcePath = "../media/" . $filename;
+                $targetPath = $uploadPath . $filename;
+                move_uploaded_file($sourcePath, $targetPath);
+            }
+
+            return "Evento creado exitosamente";
         } catch (PDOException $e) {
-            return "Error: al crear el evento" . $e->getMessage();
+            return "Error al crear el evento: " . $e->getMessage();
         }
     }
 
@@ -70,6 +72,7 @@ class Evento
             return "Error al consultar evento " . $e->getMessage();
         }
     }
+    
     public function update()
     {
         try {
