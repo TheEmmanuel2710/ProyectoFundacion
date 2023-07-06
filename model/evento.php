@@ -72,22 +72,27 @@ class Evento
             return "Error al consultar evento " . $e->getMessage();
         }
     }
-    
+
     public function update()
     {
         try {
-            $request = $this->con->getCon()->prepare("UPDATE eventos SET notiTitulo=?, notiDescripcion=?, notiAnexo=? WHERE id=?");
-            $request->bindParam(1, $this->titulo);
-            $request->bindParam(2, $this->descripcion);
-            $request->bindParam(3, $this->anexo);
-            $request->bindParam(4, $this->id);
+            $request = $this->con->getCon()->prepare("UPDATE eventos SET notiTitulo=:titulo, notiDescripcion=:descripcion, notiAnexo=:anexo WHERE id=:id");
+            $request->bindValue(':titulo', $this->titulo);
+            $request->bindValue(':descripcion', $this->descripcion);
+    
+            $filenames = $this->anexo; // Asignar directamente $this->anexo a $filenames
+    
+            $request->bindValue(':anexo', $filenames);
+            $request->bindValue(':id', $this->id);
             $request->execute();
-            return "Evento modificado";
+            return "Evento modificado exitosamente";
         } catch (PDOException $e) {
-            return "Error al actualizar el evento" . $e->getMessage();
+            return "Error al actualizar el evento: " . $e->getMessage();
         }
     }
+    
 
+    
     public function delete()
     {
         try {
