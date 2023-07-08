@@ -1,47 +1,3 @@
-function Create() {
-    // Obtener los valores de los campos
-    var txtTitulo = document.getElementById("txtTitulo").value;
-    var txtDescripcion = document.getElementById("txtDescripcion").value;
-    var fileInput = document.getElementById("fileAnexo");
-    var file = fileInput.files[0];
-
-    // Validar que los campos no estén vacíos
-    if (txtTitulo.trim() === "" || txtDescripcion.trim() === "") {
-        alert("Por favor, completa todos los campos.");
-        return;
-    }
-
-    // Validar que se haya seleccionado un archivo
-    if (!file) {
-        alert("Por favor, selecciona un archivo.");
-        return;
-    }
-
-    // Crear objeto FormData para enviar el formulario y los archivos
-    var formData = new FormData();
-    formData.append('txtTitulo', txtTitulo);
-    formData.append('txtDescripcion', txtDescripcion);
-    formData.append('fileAnexo', file);
-
-    // Configurar la petición fetch
-    var options = {
-        method: "POST",
-        body: formData,
-    };
-
-    fetch("./controller/eventos.create.php", options)
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-            Read();
-            location.reload();
-        })
-        .catch((error) => {
-            console.log("-----Error al crear evento-----");
-        });
-}
-
-
 function Read() {
     fetch("./controller/eventos.read.php")
         .then((response) => response.json())
@@ -56,27 +12,32 @@ function Read() {
                 filas += `<td>`;
                 if (typeof element.notiAnexo === 'string' && element.notiAnexo !== '') {
                     const filenames = element.notiAnexo.split(',');
-                    filas += `
-                        <div id="carousel-${index}" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">`;
-                    filenames.forEach((filename, i) => {
-                        const activeClass = i === 0 ? 'active' : '';
+                    if (filenames.length > 1) {
                         filas += `
-                                <div class="carousel-item ${activeClass}">
-                                    <img src="./media/${filename.trim()}" style="width:100%; height:130px;" class="d-block" alt="Imagen">
-                                </div>`;
-                    });
-                    filas += `
-                            </div>
-                            <a class="carousel-control-prev" href="#carousel-${index}" role="button" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carousel-${index}" role="button" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </a>
-                        </div>`;
+                            <div id="carousel-${index}" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">`;
+                        filenames.forEach((filename, i) => {
+                            const activeClass = i === 0 ? 'active' : '';
+                            filas += `
+                                    <div class="carousel-item ${activeClass}">
+                                        <img src="./media/${filename.trim()}" style="width:100%; height:130px;" class="d-block" alt="Imagen">
+                                    </div>`;
+                        });
+                        filas += `
+                                </div>
+                                <a class="carousel-control-prev" href="#carousel-${index}" role="button" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carousel-${index}" role="button" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </a>
+                            </div>`;
+                    } else {
+                        const filename = filenames[0].trim();
+                        filas += `<img src="./media/${filename}" style="width:100%; height:130px;" alt="Imagen">`;
+                    }
                 } else {
                     filas += `${element.notiAnexo}`;
                 }
@@ -93,6 +54,7 @@ function Read() {
 }
 
 Read();
+
 
 function update() {
     let id = localStorage.id;
@@ -119,7 +81,6 @@ function update() {
         .then((data) => {
             console.log(data);
             Read();
-            location.reload();
         });
 }
 

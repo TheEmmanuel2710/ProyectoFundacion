@@ -1,5 +1,4 @@
 <?php
-
 include_once "../model/evento.php";
 
 $eventosM = new Modelo\Evento();
@@ -18,7 +17,7 @@ foreach ($_FILES["fileAnexo"]["tmp_name"] as $key => $tmp_name) {
         $directorio = '../media/';
 
         if (!file_exists($directorio)) {
-            mkdir($directorio, 0777) or die("No se puede crear el directorio de extracci&oacute;n");
+            mkdir($directorio, 0777) or die("No se puede crear el directorio de extracción");
         }
 
         $dir = opendir($directorio);
@@ -28,7 +27,12 @@ foreach ($_FILES["fileAnexo"]["tmp_name"] as $key => $tmp_name) {
             echo "El archivo $filename se ha almacenado en forma exitosa.<br>";
             $filenames[] = $filename; // Agregar el nombre del archivo a la matriz
         } else {
-            echo "Ha ocurrido un error, por favor inténtelo de nuevo.<br>";
+            echo "Ha ocurrido un error al almacenar el archivo $filename. Por favor, inténtelo de nuevo.<br>";
+            // Crear el script para mostrar el Sweet Alert de error
+            echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+            echo '<script>';
+            echo 'swal("¡Error!", "Ha ocurrido un error al almacenar el archivo ' . $filename . '", "error");';
+            echo '</script>';
         }
         closedir($dir);
     }
@@ -40,10 +44,20 @@ $result = $eventosM->create();
 // Obtener los eventos después de crearlos
 $eventos = $eventosM->read();
 
+// Comprobar si se crearon eventos
+if (!empty($eventos)) {
+    // Crear el script para mostrar el Sweet Alert de éxito y redireccionar al archivo HTML
+    echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+    echo '<script>';
+    echo 'swal("Sistema Fundacion Divino Niño Dice:", "Evento creado de manera correcta.", "success").then(function() { window.location.href = "../vistaGestionarEventos.html"; });';
+    echo '</script>';
+} else {
+    // En caso de que no se hayan creado eventos
+    echo "Ha ocurrido un error al crear los eventos. Por favor, inténtelo de nuevo.";
+}
+
 // Devolver los eventos como respuesta en formato JSON
 echo json_encode($eventos);
 
 unset($eventosM);
-
-
 ?>
