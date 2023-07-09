@@ -132,11 +132,13 @@ section{
   .footer-bottom {
     font-size: 12px;
   }
-}
-
-@media (min-width: 1201px) {
-  .footer-bottom {
-    font-size: 16px;
+  #footer{
+    padding: 110px 0;
+  }
+  #car-bodyV{
+    font-size: 13px;
   }
 }
+
+
 
