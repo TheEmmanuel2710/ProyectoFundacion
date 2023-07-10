@@ -9,7 +9,7 @@ function Read() {
                 filas += `<td>${element.notiTitulo}</td>`;
                 filas += `<td>${element.notiDescripcion}</td>`;
 
-                filas += `<td>`;
+                filas += `<td id="imagenT">`;
                 if (typeof element.notiAnexo === 'string' && element.notiAnexo !== '') {
                     const filenames = element.notiAnexo.split(',');
                     if (filenames.length > 1) {
@@ -20,7 +20,7 @@ function Read() {
                             const activeClass = i === 0 ? 'active' : '';
                             filas += `
                                     <div class="carousel-item ${activeClass}">
-                                        <img src="./media/${filename.trim()}" style="width:100%; height:130px;" class="d-block" alt="Imagen">
+                                        <img src="./media/${filename.trim()}"  style="width:100%; height:130px;" class="d-block" alt="Imagen">
                                     </div>`;
                         });
                         filas += `
@@ -80,9 +80,17 @@ function update() {
         .then((response) => response.json())
         .then((data) => {
             console.log(data);
+            if (data === "Evento modificado exitosamente") {
+                alert("El evento se ha actualizado exitosamente");
+                window.location.href = "./vistaGestionarEventos.html";
+            } else {
+                alert("Error al actualizar el evento");
+            }
             Read();
         });
 }
+
+
 
 
 
